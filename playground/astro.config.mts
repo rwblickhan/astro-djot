@@ -3,15 +3,15 @@ import { createResolver } from "astro-integration-kit";
 import { hmrIntegration } from "astro-integration-kit/dev";
 import { defineConfig } from "astro/config";
 
-const { default: packageName } = await import("package-name");
+const { default: djot } = await import("../package/src/index");
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [
-		tailwind(),
-		packageName(),
-		hmrIntegration({
-			directory: createResolver(import.meta.url).resolve("../package/dist"),
-		}),
-	],
+  integrations: [
+    tailwind(),
+    djot(),
+    hmrIntegration({
+      directory: createResolver(import.meta.url).resolve("../package/dist"),
+    }),
+  ],
 });
