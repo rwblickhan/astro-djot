@@ -1,5 +1,5 @@
 import type { NamedSSRLoadedRendererValue } from "astro";
-import type { DjotComponent } from "./vite-plugin-djot.ts";
+import type { DjotComponent } from "./vite-plugin-djot.js";
 
 async function check(
   t: any,

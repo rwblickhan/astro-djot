@@ -1,7 +1,38 @@
+---
+title: "Complex Djot Test"
+description: "Testing various Djot features"
+---
+
 # Test
 
-This is a test Djot file.
+This is a test Djot file with **bold text** and *emphasis*.
+
+## Features
+
+Here are some Djot features:
 
 - Here's some features
-
   - Like nested lists
+  - With multiple items
+- Another top-level item
+
+### Code blocks
+
+```javascript
+function hello() {
+  console.log("Hello from Djot!");
+}
+```
+
+> This is a blockquote in Djot format.
+
+What about a line break? Here it is.
+
+***
+
+
+And this is {=highlighted=}
+
+And this is {-deleted-}{+inserted+}.
+
+And some `inline code` for good measure.

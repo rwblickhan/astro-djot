@@ -1,0 +1,23 @@
+---
+title: "Sample Blog Post in Djot"
+description: "This is a test blog post written in Djot format"
+pubDate: 2025-09-01
+---
+
+# Welcome to Djot
+
+This is a sample blog post written in **Djot** format, demonstrating that the plugin works with Astro's content collections.
+
+## Features
+
+- Content collections integration ✅
+- Frontmatter parsing ✅  
+- Rich text formatting ✅
+
+```typescript
+import { getCollection } from 'astro:content';
+
+const blogPosts = await getCollection('blog');
+```
+
+> Djot is working great with Astro!

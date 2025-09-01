@@ -1,7 +1,7 @@
 import type { Plugin } from "vite";
 import { renderToHTML } from "./djot.js";
 import { parseFrontmatter } from "@astrojs/markdown-remark";
-import { shorthash } from "./shorthash.ts";
+import { shorthash } from "./shorthash.js";
 
 export type DjotComponent = {
   name: "DjotComponent";
@@ -136,16 +136,16 @@ export default function vitePluginDjot(): Plugin {
         return ${JSON.stringify(headings)};
       }
 
-      export const Content = createComponent((result, _props, slots) => {
+      export const Content = createComponent(async (result, _props, slots) => {
         const { layout, ...content } = frontmatter;
         content.file = file;
-        content.url = url;
+        content.url = undefined;
 
         return ${
           layout
             ? `render\`\${renderComponent(result, 'Layout', Layout, {
               file,
-              url,
+              url: undefined,
               content,
               frontmatter: content,
               headings: getHeadings(),
@@ -153,9 +153,9 @@ export default function vitePluginDjot(): Plugin {
               compiledContent,
               'server:root': true,
             }, {
-              'default': () => render\`\${unescapeHTML(html())}\`
+              'default': async () => render\`\${unescapeHTML(await html())}\`
             })}\`;`
-            : `render\`<meta charset="utf-8">\${maybeRenderHead(result)}\${unescapeHTML(html())}\`;`
+            : `render\`<meta charset="utf-8">\${maybeRenderHead(result)}\${unescapeHTML(await html())}\`;`
         }
       });
       export default Content;
