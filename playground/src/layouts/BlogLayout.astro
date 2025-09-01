@@ -1,0 +1,49 @@
+---
+const { frontmatter } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={frontmatter.description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{frontmatter.title}</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+        background: #f0f0f0;
+      }
+      .blog-header {
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid #e0e0e0;
+      }
+      .blog-title {
+        color: #333;
+        margin: 0;
+      }
+      .blog-meta {
+        color: #666;
+        margin-top: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="blog-header">
+      <h1 class="blog-title">{frontmatter.title}</h1>
+      <div class="blog-meta">
+        {frontmatter.pubDate && new Date(frontmatter.pubDate).toLocaleDateString()}
+        {frontmatter.description && ` • ${frontmatter.description}`}
+      </div>
+    </div>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>

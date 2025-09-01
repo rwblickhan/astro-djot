@@ -1,6 +1,7 @@
 ---
 title: "Complex Djot Test"
 description: "Testing various Djot features"
+layout: ../layouts/Layout.astro
 ---
 
 # Test

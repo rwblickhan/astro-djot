@@ -2,6 +2,7 @@
 title: "Sample Blog Post in Djot"
 description: "This is a test blog post written in Djot format"
 pubDate: 2025-09-01
+layout: ../../layouts/BlogLayout.astro
 ---
 
 # Welcome to Djot

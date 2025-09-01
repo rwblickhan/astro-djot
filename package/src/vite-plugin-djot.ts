@@ -100,8 +100,7 @@ export default function vitePluginDjot(): Plugin {
       });
 
       const html = renderToHTML(content);
-      // TODO frontmatter
-      const layout = null;
+      const layout = frontmatter.layout || null;
       const headings: string[] = [];
       const rawImagePaths: string[] = [];
 
